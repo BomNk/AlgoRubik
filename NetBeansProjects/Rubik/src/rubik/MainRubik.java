@@ -150,7 +150,7 @@ public class MainRubik extends javax.swing.JFrame {
         boolean b ;
         b = Read_File();
         System.out.println("Status is " + b);
-        Write_File();
+        //Write_File();
         
        // System.out.println("Status is " + b);
        Start();
@@ -250,26 +250,27 @@ public class MainRubik extends javax.swing.JFrame {
             Face =  Face + (char)c;
             //ans = true;
             //out.write(c);    
-       }
-       if(Face.length() == 0){
-            ans =  false;
-            System.out.println("Face = " + Face.length());
-            
-       }
-       else{
-            ans = true;
-            System.out.println("Face = " + Face);
-            Find_Result();
-       }
-       
-      }finally {
-         if (in != null) {
-            in.close();
-         }
-         
-      }
-     //System.out.println("Status = " + Face);
-      return ans; 
+                }
+                if(Face.length() == 0){
+                     ans =  false;
+                     System.out.println("Face = " + Face.length());
+
+                }
+                else{
+                     ans = true;
+                     System.out.println("Face = " + Face);
+                     Find_Result();
+                     Write_File();
+                }
+
+               }finally {
+                  if (in != null) {
+                     in.close();
+                  }
+
+               }
+              //System.out.println("Status = " + Face);
+               return ans; 
      
 
     }
