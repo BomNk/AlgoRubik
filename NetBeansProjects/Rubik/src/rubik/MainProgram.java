@@ -287,7 +287,7 @@ public class MainProgram extends javax.swing.JFrame {
         StringBuffer s = new StringBuffer(54);
 
         for (int i = 0; i < 54; i++)
-            s.insert(i, 'B');// default initialization
+            s.insert(i, 'B');// default initialization  
        
         for (int i = 0; i < 6; i++)
             // read the 54 facelets
@@ -372,33 +372,5 @@ public class MainProgram extends javax.swing.JFrame {
     
     
     //////READ  AND  WRITE  FILE///////////////////////////////////////////////////////////
-    public void Read_File(String File_Name){
-        String Cube_Face = "";
-        try {
-           
-         InputStream is = new FileInputStream(File_Name);
-         int size = is.available();
-
-         for(int i = 0; i < size; i++) {
-            System.out.print((char)is.read() + "  ");
-         }
-         is.close();
-      } catch (IOException e) {
-         System.out.print("Exception_Read_File");
-      }	
-      return Cube_Face;
-    }
-    public void  Write_File(String File_Name,String Cube_Face){
-        try {
-           String data = "BomNk";
-         OutputStream os = new FileOutputStream(File_Name);
-         for(int x = 0; x < data.length() ; x++) {
-            os.write( data.indexOf(x) );   // writes the bytes
-         }
-         os.close();
-
-      } catch (IOException e) {
-         System.out.print("Exception_Read_File");
-      }	
-    }
+    
 }
