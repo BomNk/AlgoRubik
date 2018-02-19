@@ -58,7 +58,7 @@ public class MainRubik extends javax.swing.JFrame {
     private int maxDepth = 21, maxTime = 5;
     boolean useSeparator = true;
     boolean showString = false;
-    boolean inverse = true;
+    boolean inverse = false;
     boolean showLength = true;
     Search search = new Search();
 
