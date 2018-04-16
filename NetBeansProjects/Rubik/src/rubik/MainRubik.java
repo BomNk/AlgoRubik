@@ -58,7 +58,7 @@ public class MainRubik extends javax.swing.JFrame {
     private int maxDepth = 21, maxTime = 5;
     boolean useSeparator = true;
     boolean showString = false;
-    boolean inverse = false;
+    boolean inverse = true;
     boolean showLength = true;
     Search search = new Search();
 
@@ -68,15 +68,18 @@ public class MainRubik extends javax.swing.JFrame {
     String Result;
     FileInputStream in = null;
     FileOutputStream out = null;
+    FileOutputStream out1=null,out2=null;
     Timer Mytimer = new Timer();
     int secondsPassed = 0;
     TimerTask task = new TimerTask(){
         //RWFileIO tt = new RWFileIO();
     @Override
     public void run(){
+            
             secondsPassed++;
             System.out.println("SecondsPassed : " + secondsPassed);
         try {
+           
             Bom = Read_File();
             System.out.println("Status file 1 = " + Bom);
             
@@ -97,7 +100,7 @@ public class MainRubik extends javax.swing.JFrame {
     }
     ///////////////////////////////////////////////////////////////////////////////////
     
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         /*
         String cube = "bom tanapon Nk";
         
@@ -106,6 +109,7 @@ public class MainRubik extends javax.swing.JFrame {
         
         x.Read_File("d:\\Rubik.txt");
         */
+       
         
         String fileName = "m2p" + (Search.USE_TWIST_FLIP_PRUN ? "T" : "") + ".data";
         try {
@@ -148,8 +152,14 @@ public class MainRubik extends javax.swing.JFrame {
     public MainRubik() throws IOException {
         super();
         boolean b ;
+        
+        System.out.println("DELETE DATA IN FILE");
+        Write_File_NULL();
+        System.out.println("check 1");
         b = Read_File();
+         System.out.println("check 2");
         System.out.println("Status is " + b);
+         
         //Write_File();
         
        // System.out.println("Status is " + b);
@@ -290,6 +300,29 @@ public class MainRubik extends javax.swing.JFrame {
          
          if (out != null) {
             out.close();
+         }
+      }
+
+    }
+    /// write File Face and Result  is Null //
+    public void Write_File_NULL() throws FileNotFoundException, IOException{
+        try {
+            
+            out1 = new FileOutputStream("D:\\Result.txt");
+            out1.flush();
+            out1.close();
+            out2 = new FileOutputStream("D:\\Face.txt");
+            out2.flush();
+            out2.close();
+          
+         // tanapon ninket
+      }finally {
+         
+         if (out1 != null) {
+            out1.close();
+         }
+          if (out2 != null) {
+            out2.close();
          }
       }
 

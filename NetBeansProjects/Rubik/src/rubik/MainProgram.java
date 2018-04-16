@@ -1,4 +1,4 @@
-package ui;
+package rubik;
 
 import cs.min2phase.Tools;
 import cs.min2phase.Search;
